@@ -39,7 +39,7 @@ sudo curl -q https://raw.githubusercontent.com/adaiguoguo/nsfailover/master/nsfa
 
 ```bash
 crontab -e
-* * * * * NS_1=192.168.64.4 nsfailover.sh 2>&1 |logger -t cron-nsfailover
+* * * * * NS_1=183.60.82.98 nsfailover.sh 2>&1 |logger -t cron-nsfailover
 ```
 
 ## Config
@@ -50,12 +50,13 @@ Here they are with their defaults:
 
 ```bash
 LOG_LEVEL="6" # 7 = debug, 0 = emergency
-NS_2="192.168.64.4" # Secundary Nameserver: eleme
+NS_1="" # Primary Nameserver (183.60.82.98 for tencent). You need to set this yourself
+NS_2="192.168.64.4" # Secundary Nameserver: eleme back
 NS_3="183.60.83.19" # Tertiary Nameserver: tencent back
 NS_ATTEMPTS="1" # http://linux.die.net/man/5/resolv.conf
 NS_ENABLE="no" # Set to no to disable
 NS_FILE="/etc/resolv.conf" # Where to write resolving conf
-NS_TESTDOMAIN="google.com" # Use this to determine if NS is healthy
+NS_TESTDOMAIN="www.baidu.com" # Use this to determine if NS is healthy
 NS_TIMEOUT="3" # http://linux.die.net/man/5/resolv.conf
 NS_WRITEPROTECT="no" # Use this to write-protect /etc/resolv.conf
 NS_SEARCH="elenet.me" # Domain to search hosts in (for elenet.me)

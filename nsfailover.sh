@@ -45,6 +45,7 @@
 [ -z "${LOG_LEVEL}" ]       && LOG_LEVEL="6" # 7 = debug, 0 = emergency
 [ -z "${NS_ENABLE}" ]       && NS_ENABLE="yes" # Set to no to disable
 [ -z "${NS_TESTDOMAIN}" ]   && NS_TESTDOMAIN="www.baidu.com" # Use this to determine if NS is healthy
+[ -z "${NS_1}" ]            && NS_1="" # Primary Nameserver (183.60.82.98 for tencent). You need to set this yourself
 [ -z "${NS_2}" ]            && NS_2="192.168.64.4" # Secundary Nameserver: eleme back
 [ -z "${NS_3}" ]            && NS_3="183.60.83.19" # Tertiary Nameserver: tencent back
 [ -z "${NS_TIMEOUT}" ]      && NS_TIMEOUT="3" # http://linux.die.net/man/5/resolv.conf
@@ -75,7 +76,7 @@ function _fmt ()      {
     # Don't use colors on pipes or non-recognized terminals
     color=""; color_reset=""
   fi
-  echo -e "$(date -u +"%Y-%m-%d %H:%M:%S UTC") ${color}$(printf "[%9s]" ${1})${color_reset}";
+  echo -e "$(date +"%Y-%m-%d %H:%M:%S GMT +8") ${color}$(printf "[%9s]" ${1})${color_reset}";
 }
 function emergency () {                             echo "$(_fmt emergency) ${@}" || true; exit 1; }
 function alert ()     { [ "${LOG_LEVEL}" -ge 1 ] && echo "$(_fmt alert) ${@}" || true; }
