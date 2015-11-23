@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 #
 # DNS Failover that works
+# Version v0.1.8
+#
+# change for vpc farm @eleme
+#
 # Version v0.1.7
 #
 # More info: http://kvz.io/blog/2013/03/27/poormans-way-to-decent-dns-failover/
@@ -39,16 +43,16 @@
 
 # Environment variables
 [ -z "${LOG_LEVEL}" ]       && LOG_LEVEL="6" # 7 = debug, 0 = emergency
-[ -z "${NS_ENABLE}" ]       && NS_ENABLE="no" # Set to no to disable
-[ -z "${NS_TESTDOMAIN}" ]   && NS_TESTDOMAIN="google.com" # Use this to determine if NS is healthy
+[ -z "${NS_ENABLE}" ]       && NS_ENABLE="yes" # Set to no to disable
+[ -z "${NS_TESTDOMAIN}" ]   && NS_TESTDOMAIN="www.baidu.com" # Use this to determine if NS is healthy
 [ -z "${NS_1}" ]            && NS_1="" # Primary Nameserver (172.16.0.23 for Amazon EC2). You need to set this yourself
-[ -z "${NS_2}" ]            && NS_2="8.8.8.8" # Secundary Nameserver: Google
-[ -z "${NS_3}" ]            && NS_3="4.2.2.2" # Tertiary Nameserver: Level3
+[ -z "${NS_2}" ]            && NS_2="183.60.82.98" # Secundary Nameserver: baidu
+[ -z "${NS_3}" ]            && NS_3="183.60.83.19" # Tertiary Nameserver: Level3
 [ -z "${NS_TIMEOUT}" ]      && NS_TIMEOUT="3" # http://linux.die.net/man/5/resolv.conf
 [ -z "${NS_ATTEMPTS}" ]     && NS_ATTEMPTS="1" # http://linux.die.net/man/5/resolv.conf
 [ -z "${NS_WRITEPROTECT}" ] && NS_WRITEPROTECT="no" # Use this to write-protect /etc/resolv.conf
 [ -z "${NS_FILE}" ]         && NS_FILE="/etc/resolv.conf" # Where to write resolving conf
-[ -z "${NS_SEARCH}" ]       && NS_SEARCH="" # Domain to search hosts in (compute-1.internal for Amazon EC2)
+[ -z "${NS_SEARCH}" ]       && NS_SEARCH="elenet.me" # Domain to search hosts in (compute-1.internal for Amazon EC2)
 
 # Set magic variables for current FILE & DIR
 __DIR__="$(cd "$(dirname "${0}")"; echo $(pwd))"
