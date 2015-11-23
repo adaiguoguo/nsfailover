@@ -45,9 +45,8 @@
 [ -z "${LOG_LEVEL}" ]       && LOG_LEVEL="6" # 7 = debug, 0 = emergency
 [ -z "${NS_ENABLE}" ]       && NS_ENABLE="yes" # Set to no to disable
 [ -z "${NS_TESTDOMAIN}" ]   && NS_TESTDOMAIN="www.baidu.com" # Use this to determine if NS is healthy
-[ -z "${NS_1}" ]            && NS_1="" # Primary Nameserver (172.16.0.23 for Amazon EC2). You need to set this yourself
-[ -z "${NS_2}" ]            && NS_2="183.60.82.98" # Secundary Nameserver: baidu
-[ -z "${NS_3}" ]            && NS_3="183.60.83.19" # Tertiary Nameserver: Level3
+[ -z "${NS_2}" ]            && NS_2="192.168.64.4" # Secundary Nameserver: eleme back
+[ -z "${NS_3}" ]            && NS_3="183.60.83.19" # Tertiary Nameserver: tencent back
 [ -z "${NS_TIMEOUT}" ]      && NS_TIMEOUT="3" # http://linux.die.net/man/5/resolv.conf
 [ -z "${NS_ATTEMPTS}" ]     && NS_ATTEMPTS="1" # http://linux.die.net/man/5/resolv.conf
 [ -z "${NS_WRITEPROTECT}" ] && NS_WRITEPROTECT="no" # Use this to write-protect /etc/resolv.conf

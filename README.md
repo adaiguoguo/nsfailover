@@ -50,9 +50,8 @@ Here they are with their defaults:
 
 ```bash
 LOG_LEVEL="6" # 7 = debug, 0 = emergency
-NS_1="" # Primary Nameserver (172.16.0.23 for Amazon EC2). You need to set this yourself
-NS_2="183.60.82.98" # Secundary Nameserver: baidu
-NS_3="183.60.83.19" # Tertiary Nameserver: Level3
+NS_2="192.168.64.4" # Secundary Nameserver: eleme
+NS_3="183.60.83.19" # Tertiary Nameserver: tencent back
 NS_ATTEMPTS="1" # http://linux.die.net/man/5/resolv.conf
 NS_ENABLE="no" # Set to no to disable
 NS_FILE="/etc/resolv.conf" # Where to write resolving conf
